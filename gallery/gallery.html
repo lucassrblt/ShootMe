@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     :root {
       --gap: 16px;
       --font-color: #333;
-      --caption-color: #555; /* Amélioration contraste WCAG AA */
+      --caption-color: #555;
       --bg-color: #f9f9f9;
     }
     *, *::before, *::after {
@@ -23,7 +23,6 @@
       color: var(--font-color);
       background-color: var(--bg-color);
     }
-    /* Lien "Passer au contenu" caché, visible au focus */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -69,7 +68,7 @@
     img {
       width: 100%;
       height: auto;
-      aspect-ratio: 3 / 2; /* Réserve l'espace pour éviter les CLS */
+      aspect-ratio: 3 / 2;
       object-fit: cover;
       display: block;
     }
@@ -81,7 +80,6 @@
       text-align: center;
       white-space: nowrap;
     }
-    /* Styles de focus pour la navigation clavier */
     a:focus {
       outline: 3px solid Highlight;
       outline-offset: 2px;

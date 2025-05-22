@@ -1,101 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/gallery.css">
-    <link rel="stylesheet" href="./assets/css/globals.css">
-    <link rel="stylesheet" href="./assets/css/form.css">
-    <title>Document</title>
-</head>
-    <body>
-        <main id="main-content" class="gallery" role="main">
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile1.webp" alt="Portrait d’un homme d’âge moyen avec une barbe et des lunettes" loading="lazy" width="600" height="400">
-                <figcaption>January 1, 2021</figcaption>
-            </figure>
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile2.webp" alt="Portrait d’une jeune femme aux cheveux attachés, regard doux" loading="lazy" width="600" height="400">
-                <figcaption>February 14, 2021</figcaption>
-            </figure>
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile3.webp" alt="Portrait d’un homme plus âgé avec des lunettes et expression sérieuse" loading="lazy" width="600" height="400">
-                <figcaption>March 10, 2021</figcaption>
-            </figure>
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile4.webp" alt="Portrait d’un homme d’âge moyen, regard direct, fond flou" loading="lazy" width="600" height="400">
-                <figcaption>April 25, 2021</figcaption>
-            </figure>
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile5.webp" alt="Portrait d’une petite fille rousse souriante" loading="lazy" width="600" height="400">
-                <figcaption>May 5, 2021</figcaption>
-            </figure>
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile6.webp" alt="Portrait d’un jeune homme souriant portant une casquette" loading="lazy" width="600" height="400">
-            </figure>
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile7.webp" alt="Portrait d’une jeune femme pensive regardant sur le côté" loading="lazy" width="600" height="400">
-                <figcaption>July 30, 2021</figcaption>
-            </figure>
-            <figure>
-                <img src="https://madlab.mpublicite.fr/clients/photos/profile8.webp" alt="Portrait d’une jeune femme souriante aux cheveux bruns, fond naturel" loading="lazy" width="600" height="400">
-                <figcaption>August 12, 2021</figcaption>
-            </figure>
-        </main>
-        <main class="contact-card">
-            <section class="form-section" aria-labelledby="form-title">
-              <h1 id="form-title" class="form-title">Parlez-nous de votre projet&nbsp;!</h1>
-        
-              <form action="#" method="post" aria-describedby="privacy-notice">
-                <div>
-                  <label for="name">Nom / Société *</label>
-                  <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom ou société" required aria-required="true" />
-                </div>
-        
-                <div>
-                  <label for="phone">Téléphone *</label>
-                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="Votre numéro de téléphone" required aria-required="true" />
-                </div>
-        
-                <div>
-                  <label for="email">Email *</label>
-                  <input type="email" id="email" name="email" class="form-input" placeholder="Votre adresse email" required aria-required="true" />
-                </div>
-        
-                <div>
-                  <label for="message">Votre demande *</label>
-                  <textarea id="message" name="message" class="form-input form-textarea" placeholder="Expliquez-nous votre projet" required aria-required="true"></textarea>
-                </div>
-        
-                <div class="checkbox-container">
-                  <input type="checkbox" id="terms" name="terms" required aria-required="true" />
-                  <label for="terms" id="privacy-notice">
-                    J'accepte que mes données personnelles soient collectées par l'agence ShootMe pour satisfaire aux traitements décrits
-                    <a href="#" title="Lire notre politique de confidentialité">ici</a>.
-                  </label>
-                </div>
-        
-                <button type="submit" class="submit-button" aria-label="Envoyer le formulaire">Envoyer</button>
-              </form>
-            </section>
-        
-            <aside class="info-section" aria-labelledby="info-heading">
-              <h2 id="info-heading" class="visually-hidden">Informations complémentaires</h2>
-        
-              <p class="info-text">
-                Vous êtes photographe et vous avez un projet qui vous tient à cœur&nbsp;?<br />
-                Rejoignez l’aventure <span class="highlight">ShootMe</span> et partageons vos idées !
-              </p>
-        
-              <p class="info-text">
-                Notre équipe est à votre écoute et vous répondra sous <span class="highlight">24h</span> maximum.
-              </p>
-        
-              <p class="info-text">
-                Vous préférez nous parler directement&nbsp;? Appelez-nous au :<br />
-                <span class="phone-number" aria-label="Téléphone : 01 53 60 08 71">01 53 60 08 71</span>
-              </p>
-            </aside>
-        </main>
-    </body>
+    <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="./assets/css/gallery.css">
+            <link rel="stylesheet" href="./assets/css/globals.css">
+            <link rel="stylesheet" href="./assets/css/form.css">
+            <link rel="stylesheet" href="./assets/css/header.css">
+            <link rel="stylesheet" href="./assets/css/theme-custom.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+            <title>ShootMe</title>
+        </head>
+        <body>
+            <shoot-me-header active-page="home"></shoot-me-header>
+            <main id="main-content" class="gallery" role="main">
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile1.webp" alt="Portrait d’un homme d’âge moyen avec une barbe et des lunettes" loading="lazy" width="600" height="400">
+                    <figcaption>January 1, 2021</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile2.webp" alt="Portrait d’une jeune femme aux cheveux attachés, regard doux" loading="lazy" width="600" height="400">
+                    <figcaption>February 14, 2021</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile3.webp" alt="Portrait d’un homme plus âgé avec des lunettes et expression sérieuse" loading="lazy" width="600" height="400">
+                    <figcaption>March 10, 2021</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile4.webp" alt="Portrait d’un homme d’âge moyen, regard direct, fond flou" loading="lazy" width="600" height="400">
+                    <figcaption>April 25, 2021</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile5.webp" alt="Portrait d’une petite fille rousse souriante" loading="lazy" width="600" height="400">
+                    <figcaption>May 5, 2021</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile6.webp" alt="Portrait d’un jeune homme souriant portant une casquette" loading="lazy" width="600" height="400">
+                </figure>
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile7.webp" alt="Portrait d’une jeune femme pensive regardant sur le côté" loading="lazy" width="600" height="400">
+                    <figcaption>July 30, 2021</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://madlab.mpublicite.fr/clients/photos/profile8.webp" alt="Portrait d’une jeune femme souriante aux cheveux bruns, fond naturel" loading="lazy" width="600" height="400">
+                    <figcaption>August 12, 2021</figcaption>
+                </figure>
+            </main>
+            <main class="contact-card">
+                <section class="form-section" aria-labelledby="form-title">
+                <h1 id="form-title" class="form-title">Parlez-nous de votre projet&nbsp;!</h1>
+            
+                <form action="#" method="post" aria-describedby="privacy-notice">
+                    <div>
+                    <label for="name">Nom / Société *</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom ou société" required aria-required="true" />
+                    </div>
+            
+                    <div>
+                    <label for="phone">Téléphone *</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Votre numéro de téléphone" required aria-required="true" />
+                    </div>
+            
+                    <div>
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Votre adresse email" required aria-required="true" />
+                    </div>
+            
+                    <div>
+                    <label for="message">Votre demande *</label>
+                    <textarea id="message" name="message" class="form-input form-textarea" placeholder="Expliquez-nous votre projet" required aria-required="true"></textarea>
+                    </div>
+            
+                    <div class="checkbox-container">
+                    <input type="checkbox" id="terms" name="terms" required aria-required="true" />
+                    <label for="terms" id="privacy-notice">
+                        J'accepte que mes données personnelles soient collectées par l'agence ShootMe pour satisfaire aux traitements décrits
+                        <a href="#" title="Lire notre politique de confidentialité">ici</a>.
+                    </label>
+                    </div>
+            
+                    <button type="submit" class="submit-button" aria-label="Envoyer le formulaire">Envoyer</button>
+                </form>
+                </section>
+            
+                <aside class="info-section" aria-labelledby="info-heading">
+                <h2 id="info-heading" class="visually-hidden">Informations complémentaires</h2>
+            
+                <p class="info-text">
+                    Vous êtes photographe et vous avez un projet qui vous tient à cœur&nbsp;?<br />
+                    Rejoignez l’aventure <span class="highlight">ShootMe</span> et partageons vos idées !
+                </p>
+            
+                <p class="info-text">
+                    Notre équipe est à votre écoute et vous répondra sous <span class="highlight">24h</span> maximum.
+                </p>
+            
+                <p class="info-text">
+                    Vous préférez nous parler directement&nbsp;? Appelez-nous au :<br />
+                    <span class="phone-number" aria-label="Téléphone : 01 53 60 08 71">01 53 60 08 71</span>
+                </p>
+                </aside>
+            </main>
+        </body>
+        <script src="./assets/js/header-component.js" defer></script>
+        <script>
+        // Script pour changer les thèmes
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.theme-button');
+            const body = document.body;
+            const header = document.querySelector('shoot-me-header');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Supprimer toutes les classes de thème
+                    body.classList.remove('home', 'portfolio', 'theme-dark');
+                    
+                    // Ajouter la classe sélectionnée
+                    const theme = button.dataset.theme;
+                    if (theme !== 'default') {
+                        body.classList.add(theme);
+                    }
+                    
+                    // Mettre à jour les boutons
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                });
+            });
+        });
+        </script>
+    </head>
 </html>

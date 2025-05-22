@@ -28,16 +28,8 @@ jobs:
     
     - name: Create dev directory structure
       run: |
-        # Create a temporary directory
-        mkdir -p temp_dev
-        # Copy all files to temp_dev
-        cp -r * temp_dev/
-        # Create dev directory in root
         mkdir -p dev
-        # Move everything from temp_dev to dev
-        mv temp_dev/* dev/
-        # Clean up
-        rm -rf temp_dev
+        find . -maxdepth 1 -not -name '.' -not -name '.git' -not -name 'dev' -exec cp -r {} dev/ \;
     
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3

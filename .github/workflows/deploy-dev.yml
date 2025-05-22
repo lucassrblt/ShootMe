@@ -19,26 +19,31 @@ jobs:
       name: github-pages-dev
       url: ${{ steps.deployment.outputs.page_url }}
     
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        
-        - name: Setup Pages
-          uses: actions/configure-pages@v4
-        
-        - name: Create dev directory structure
-          run: |
-            mkdir -p temp_dev
-            cp -r * temp_dev/
-            mkdir -p dev
-            mv temp_dev/* dev/
-            rm -rf temp_dev
-        
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v3
-          with:
-            path: '.'
-        
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4 
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+    
+    - name: Create dev directory structure
+      run: |
+        # Create a temporary directory
+        mkdir -p temp_dev
+        # Copy all files to temp_dev
+        cp -r * temp_dev/
+        # Create dev directory in root
+        mkdir -p dev
+        # Move everything from temp_dev to dev
+        mv temp_dev/* dev/
+        # Clean up
+        rm -rf temp_dev
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

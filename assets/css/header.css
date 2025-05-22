@@ -1,0 +1,290 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; 
+}
+
+.site-header {
+    background-color: var(--color-white);
+    padding: 1rem 0;
+    position: relative;
+    z-index: 100;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: inline-block;
+    font-weight: 800;
+    font-size: var(--font-size-xl);
+    letter-spacing: -0.03em; 
+    text-transform: uppercase; 
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--color-black); 
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.burger-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-black); 
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-black);
+    transition: transform 0.2s;
+}
+
+.burger-icon::before {
+    top: -6px;
+}
+
+.burger-icon::after {
+    bottom: -6px;
+}
+
+.menu-toggle[aria-expanded="true"] .burger-icon {
+    background-color: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .burger-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .burger-icon::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase; 
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.02em; 
+    transition: all 0.2s;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 2px;
+    background-color: var(--color-black);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    transform: scaleX(1);
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+    background-color: var(--color-primary);
+}
+
+/* Style du bouton de contact dans la navigation */
+.nav-item:last-child .nav-link {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: all 0.2s;
+}
+
+.nav-item:last-child .nav-link:hover,
+.nav-item:last-child .nav-link:focus {
+    background-color: var(--color-primary);
+}
+
+.nav-item:last-child .nav-link::after {
+    display: none;
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .main-nav {
+        flex-basis: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        margin-top: 1rem;
+        background-color: var(--color-white);
+        border-top: 1px solid var(--color-gray);
+    }
+    
+    .main-nav.open {
+        max-height: 400px;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 0;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid var(--color-gray-light);
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    /* Réajustement du bouton de contact sur mobile */
+    .nav-item:last-child .nav-link {
+        margin-top: 0.5rem;
+        text-align: center;
+        display: block;
+    }
+}
+
+.demo-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.demo-container h1 {
+    margin-top: 0;
+}
+
+.demo-container code {
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: monospace;
+}
+
+.demo-container h2 {
+    margin-top: 2rem;
+}
+
+.theme-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.theme-button {
+    padding: 0.5rem 1rem;
+    background: #fff;
+    border: 2px solid #000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.theme-button:hover {
+    background: #f0f0f0;
+}
+
+.theme-button.active {
+    background: #000;
+    color: #fff;
+}
+
+/* Styles pour l'impression */
+@media print {
+    .site-header {
+        border-bottom: 1px solid var(--color-black);
+    }
+    
+    .main-nav {
+        display: none;
+    }
+} 

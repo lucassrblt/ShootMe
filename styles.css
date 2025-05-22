@@ -1,10 +1,9 @@
-/* Variables de couleurs - Design minimaliste brutal */
 :root {
-    --color-primary: #7627A1; /* Violet plus saturé et contrasté */
-    --color-primary-light: #9A4DC3; /* Violet plus clair */
-    --color-primary-dark: #5B1384; /* Violet plus foncé pour l'accessibilité */
+    --color-primary: #7627A1; 
+    --color-primary-light: #9A4DC3; 
+    --color-primary-dark: #5B1384; 
     --color-white: #ffffff;
-    --color-black: #000000; /* Noir pur pour plus de brutalisme */
+    --color-black: #000000; 
     --color-gray-light: #f2f2f2;
     --color-gray: #d1d1d1;
     --color-gray-dark: #555555;
@@ -94,8 +93,8 @@ body {
     display: inline-block;
     font-weight: 800;
     font-size: var(--font-size-xl);
-    letter-spacing: -0.03em; /* Typographie resserrée */
-    text-transform: uppercase; /* Majuscules pour effet brutaliste */
+    letter-spacing: -0.03em; 
+    text-transform: uppercase; 
 }
 
 .logo img {
@@ -103,11 +102,10 @@ body {
     height: auto;
 }
 
-/* Menu toggle pour mobile - Style brutaliste */
 .menu-toggle {
     display: none;
     background: none;
-    border: 2px solid var(--color-black); /* Bordure noire épaisse */
+    border: 2px solid var(--color-black); 
     padding: 0.5rem;
     cursor: pointer;
     color: var(--color-black);
@@ -117,7 +115,7 @@ body {
     display: block;
     width: 24px;
     height: 2px;
-    background-color: var(--color-black); /* Noir pour plus de contraste */
+    background-color: var(--color-black); 
     position: relative;
     transition: background-color 0.2s;
 }
@@ -140,7 +138,6 @@ body {
     bottom: -6px;
 }
 
-/* Menu ouvert - style du burger */
 .menu-toggle[aria-expanded="true"] .burger-icon {
     background-color: transparent;
 }
@@ -155,7 +152,6 @@ body {
     bottom: 0;
 }
 
-/* Navigation principale - Style minimaliste */
 .main-nav {
     display: flex;
     align-items: center;
@@ -173,9 +169,9 @@ body {
     color: var(--color-black);
     text-decoration: none;
     font-weight: 600;
-    text-transform: uppercase; /* Majuscules pour rendu brut */
+    text-transform: uppercase; 
     font-size: var(--font-size-sm);
-    letter-spacing: 0.02em; /* Légèrement espacé pour lisibilité */
+    letter-spacing: 0.02em; 
     transition: all 0.2s;
     position: relative;
 }
@@ -212,7 +208,7 @@ body {
     background-color: var(--color-primary);
 }
 
-/* Style du bouton de contact dans la navigation - Style brutaliste */
+/* Style du bouton de contact dans la navigation */
 .nav-item:last-child .nav-link {
     background-color: var(--color-black);
     color: var(--color-white);

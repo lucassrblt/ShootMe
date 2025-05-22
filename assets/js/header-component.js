@@ -41,6 +41,29 @@ class ShootMeHeader extends HTMLElement {
           --font-size-sm: 0.875rem;
           --font-size-lg: 1.25rem;
           --font-size-xl: 1.5rem;
+
+          /* Variables pour les transitions */
+          --transition-speed: 0.3s;
+        }
+
+        /* État pour les différentes sections */
+        :host(.gallery-section) {
+          --color-primary: #673AB7;
+        }
+
+        :host(.contact-section) {
+          --color-primary: #BA68C8;
+          background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        :host(.presentation-section) {
+          --color-primary: #9C27B0;
+        }
+        
+        /* Effet de transition pour les changements de section */
+        :host {
+          transition: background-color var(--transition-speed) ease,
+                      box-shadow var(--transition-speed) ease;
         }
         
         /* Reset et styles de base */
@@ -83,6 +106,7 @@ class ShootMeHeader extends HTMLElement {
           padding: 1rem 0;
           position: relative;
           z-index: 100;
+          transition: all var(--transition-speed) ease;
         }
         
         .site-header .container {
@@ -105,10 +129,12 @@ class ShootMeHeader extends HTMLElement {
           text-transform: uppercase;
           text-decoration: none;
           color: var(--color-black);
+          transition: color var(--transition-speed) ease;
         }
         
         .logo span {
           color: var(--color-primary);
+          transition: color var(--transition-speed) ease;
         }
         
         /* Menu toggle pour mobile - Style brutaliste amélioré */
@@ -269,6 +295,24 @@ class ShootMeHeader extends HTMLElement {
         .nav-item:last-child .nav-link::after {
           display: none;
         }
+
+        /* Styles spécifiques pour les différentes sections */
+        :host(.scrolled) .site-header {
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          padding: 0.5rem 0;
+        }
+
+        :host(.gallery-section) .nav-item:nth-child(1) .nav-link {
+          color: var(--color-primary);
+        }
+
+        :host(.contact-section) .nav-item:nth-child(4) .nav-link {
+          color: var(--color-primary);
+        }
+
+        :host(.presentation-section) .nav-item:nth-child(3) .nav-link {
+          color: var(--color-primary);
+        }
         
         /* Media queries pour la responsivité */
         @media (max-width: 768px) {
@@ -335,10 +379,9 @@ class ShootMeHeader extends HTMLElement {
 
           <nav id="primary-menu" class="main-nav" aria-label="Navigation principale">
             <ul class="nav-list">
-              <li class="nav-item"><a href="index.html" class="nav-link ${activePage === 'home' ? 'active' : ''}" ${activePage === 'home' ? 'aria-current="page"' : ''}>Accueil</a></li>
-              <li class="nav-item"><a href="portfolio.html" class="nav-link ${activePage === 'portfolio' ? 'active' : ''}" ${activePage === 'portfolio' ? 'aria-current="page"' : ''}>Photographes</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link ${activePage === 'about' ? 'active' : ''}" ${activePage === 'about' ? 'aria-current="page"' : ''}>À propos</a></li>
-              <li class="nav-item"><a href="contact.html" class="nav-link ${activePage === 'contact' ? 'active' : ''}" ${activePage === 'contact' ? 'aria-current="page"' : ''}>Nous contacter</a></li>
+              <li class="nav-item"><a href="#gallery-section" class="nav-link ${activePage === 'home' ? 'active' : ''}" ${activePage === 'home' ? 'aria-current="page"' : ''}>Galerie</a></li>
+              <li class="nav-item"><a href="#presentation-section" class="nav-link ${activePage === 'about' ? 'active' : ''}" ${activePage === 'about' ? 'aria-current="page"' : ''}>À propos</a></li>
+              <li class="nav-item"><a href="#contact-section" class="nav-link ${activePage === 'contact' ? 'active' : ''}" ${activePage === 'contact' ? 'aria-current="page"' : ''}>Nous contacter</a></li>
             </ul>
           </nav>
         </div>
@@ -347,6 +390,9 @@ class ShootMeHeader extends HTMLElement {
     
     // Ajouter les gestionnaires d'événements après le rendu
     this._addEventListeners();
+
+    // Initialiser l'Intersection Observer pour détecter les sections
+    this._initSectionObserver();
   }
   
   // Ajouter les événements pour le menu mobile
@@ -354,6 +400,7 @@ class ShootMeHeader extends HTMLElement {
     // Éléments DOM
     const menuToggle = this.shadowRoot.querySelector('.menu-toggle');
     const mainNav = this.shadowRoot.querySelector('.main-nav');
+    const navLinks = this.shadowRoot.querySelectorAll('.nav-link');
     
     // Vérification des éléments
     if (!menuToggle || !mainNav) return;
@@ -385,6 +432,30 @@ class ShootMeHeader extends HTMLElement {
       });
     });
     
+    // Navigation interne de la page
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      
+      // Si c'est un lien ancre (section interne)
+      if (href && href.startsWith('#')) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+            
+            // Mise à jour de l'URL sans rechargement de page
+            history.pushState(null, '', href);
+            
+            // Mise à jour de l'état actif dans la navigation
+            this._updateActiveLink(link);
+          }
+        });
+      }
+    });
+    
     // Accessibilité clavier
     menuToggle.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -414,16 +485,98 @@ class ShootMeHeader extends HTMLElement {
     
     window.addEventListener('resize', handleResize);
     
-    // Nettoyage des écouteurs d'événements si le composant est déconnecté
+    // Détecter le défilement de la page
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        this.classList.add('scrolled');
+      } else {
+        this.classList.remove('scrolled');
+      }
+    });
+    
     this._cleanup = () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', this._handleScroll);
     };
+  }
+  
+  // Initialiser l'Intersection Observer pour les sections
+  _initSectionObserver() {
+    // Options pour l'observer
+    const options = {
+      root: null, // viewport
+      rootMargin: '-20% 0px -70% 0px', // Déclenché quand la section est à 20% du haut et 70% du bas
+      threshold: 0 // Déclenché dès qu'une partie de la section est visible
+    };
+    
+    // Fonction de callback pour l'observer
+    const handleIntersect = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          
+          // Enlever toutes les classes de section
+          this.classList.remove('gallery-section', 'contact-section', 'presentation-section');
+          
+          // Ajouter la classe correspondante
+          if (sectionId === 'gallery-section' || sectionId.includes('gallery')) {
+            this.classList.add('gallery-section');
+            this._updateActiveLink(this.shadowRoot.querySelector('.nav-link[href="#gallery-section"]'));
+          } else if (sectionId === 'contact-section' || entry.target.classList.contains('contact-card')) {
+            this.classList.add('contact-section');
+            this._updateActiveLink(this.shadowRoot.querySelector('.nav-link[href="#contact-section"]'));
+          } else if (sectionId === 'presentation-section') {
+            this.classList.add('presentation-section');
+            this._updateActiveLink(this.shadowRoot.querySelector('.nav-link[href="#presentation-section"]'));
+          }
+        }
+      });
+    };
+    
+    // Créer l'observer
+    const observer = new IntersectionObserver(handleIntersect, options);
+    
+    // Observer les sections principales
+    const sections = [
+      document.getElementById('gallery-section'), // Galerie
+      document.getElementById('contact-section'), // Contact
+      document.getElementById('presentation-section') // Présentation
+    ];
+    
+    // Ajouter chaque section à l'observer si elle existe
+    sections.forEach(section => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+    
+    // Sauvegarder l'observer pour le nettoyer plus tard
+    this._sectionObserver = observer;
+  }
+  
+  // Mettre à jour le lien actif dans la navigation
+  _updateActiveLink(activeLink) {
+    if (!activeLink) return;
+    
+    // Retirer la classe active de tous les liens
+    this.shadowRoot.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
+    });
+    
+    // Ajouter la classe active au lien concerné
+    activeLink.classList.add('active');
+    activeLink.setAttribute('aria-current', 'page');
   }
   
   // Nettoyage lorsque le composant est retiré du DOM
   disconnectedCallback() {
     if (this._cleanup) {
       this._cleanup();
+    }
+    
+    if (this._sectionObserver) {
+      this._sectionObserver.disconnect();
     }
   }
   

@@ -306,11 +306,15 @@ class ShootMeHeader extends HTMLElement {
           color: var(--color-primary);
         }
 
-        :host(.contact-section) .nav-item:nth-child(4) .nav-link {
+        :host(.photographers-section) .nav-item:nth-child(2) .nav-link {
           color: var(--color-primary);
         }
 
         :host(.presentation-section) .nav-item:nth-child(3) .nav-link {
+          color: var(--color-primary);
+        }
+
+        :host(.contact-section) .nav-item:nth-child(4) .nav-link {
           color: var(--color-primary);
         }
         
@@ -380,6 +384,7 @@ class ShootMeHeader extends HTMLElement {
           <nav id="primary-menu" class="main-nav" aria-label="Navigation principale">
             <ul class="nav-list">
               <li class="nav-item"><a href="#gallery-section" class="nav-link ${activePage === 'home' ? 'active' : ''}" ${activePage === 'home' ? 'aria-current="page"' : ''}>Galerie</a></li>
+              <li class="nav-item"><a href="#photographers-section" class="nav-link">Photographes</a></li>
               <li class="nav-item"><a href="#presentation-section" class="nav-link ${activePage === 'about' ? 'active' : ''}" ${activePage === 'about' ? 'aria-current="page"' : ''}>À propos</a></li>
               <li class="nav-item"><a href="#contact-section" class="nav-link ${activePage === 'contact' ? 'active' : ''}" ${activePage === 'contact' ? 'aria-current="page"' : ''}>Nous contacter</a></li>
             </ul>
@@ -516,12 +521,15 @@ class ShootMeHeader extends HTMLElement {
           const sectionId = entry.target.id;
           
           // Enlever toutes les classes de section
-          this.classList.remove('gallery-section', 'contact-section', 'presentation-section');
+          this.classList.remove('gallery-section', 'photographers-section', 'contact-section', 'presentation-section');
           
           // Ajouter la classe correspondante
           if (sectionId === 'gallery-section' || sectionId.includes('gallery')) {
             this.classList.add('gallery-section');
             this._updateActiveLink(this.shadowRoot.querySelector('.nav-link[href="#gallery-section"]'));
+          } else if (sectionId === 'photographers-section' || sectionId.includes('photographers')) {
+            this.classList.add('photographers-section');
+            this._updateActiveLink(this.shadowRoot.querySelector('.nav-link[href="#photographers-section"]'));
           } else if (sectionId === 'contact-section' || entry.target.classList.contains('contact-card')) {
             this.classList.add('contact-section');
             this._updateActiveLink(this.shadowRoot.querySelector('.nav-link[href="#contact-section"]'));
@@ -539,6 +547,7 @@ class ShootMeHeader extends HTMLElement {
     // Observer les sections principales
     const sections = [
       document.getElementById('gallery-section'), // Galerie
+      document.getElementById('photographers-section'), // Photographes
       document.getElementById('contact-section'), // Contact
       document.getElementById('presentation-section') // Présentation
     ];

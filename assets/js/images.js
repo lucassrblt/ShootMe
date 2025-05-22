@@ -29,14 +29,24 @@ const photographer = [
   },
 ];
 
-const boxPhotographer = document.querySelector(".container_images");
+let boxPhotographer = document.querySelector(".container_images");
 
+// Configurer la section des photographes
+boxPhotographer.id = "photographers-section";
+
+// Créer et ajouter un titre à la section
+const sectionTitle = document.createElement("h2");
+sectionTitle.classList.add("section-title");
+sectionTitle.textContent = "Nos Photographes Professionnels";
+boxPhotographer.appendChild(sectionTitle);
+
+// Créer et ajouter les cartes de photographes
 photographer.map((photographer) => {
   const box = document.createElement("div");
   box.classList.add("box");
   box.setAttribute("tabindex", "0");
   box.innerHTML = `
-      <img class="img_photographer" src="${photographer.image}" alt="${photographer.name}">
+      <img class="img_photographer" src="${photographer.image}" alt="${photographer.name}, photographe professionnel">
       
       <div class="info_name">
           <p>${photographer.name}</p>

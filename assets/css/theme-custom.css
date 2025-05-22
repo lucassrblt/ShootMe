@@ -34,6 +34,13 @@ shoot-me-header.gallery-section {
   background-color: rgba(255, 255, 255, 0.98);
 }
 
+shoot-me-header.photographers-section {
+  --color-primary: #7E57C2; /* Une nuance de violet différente */
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 12px rgba(126, 87, 194, 0.15);
+  border-bottom: 2px solid #7E57C2;
+}
+
 shoot-me-header.contact-section {
   --color-primary: #BA68C8;
   background-color: rgba(255, 255, 255, 0.98);
@@ -50,6 +57,15 @@ shoot-me-header.presentation-section {
 shoot-me-header.scrolled {
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* Styles spécifiques pour les transitions entre sections */
+shoot-me-header {
+  transition: 
+    background-color 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out,
+    border-bottom 0.4s ease-in-out,
+    --color-primary 0.4s ease-in-out;
 }
 
 /* Amélioration spécifique du burger menu */
@@ -129,6 +145,14 @@ main, section {
 /* Styles pour les sections */
 #gallery-section {
   padding-top: 1rem;
+}
+
+#photographers-section {
+  margin-top: 2rem;
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
 }
 
 #contact-section {

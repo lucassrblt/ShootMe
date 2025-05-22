@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShootMe - Composant Header</title>
+    <meta name="description" content="Démonstration du composant header ShootMe.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Composants -->
+    <script src="components/header-component.js" defer></script>
+    
+    <style>
+        .demo-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-container h1 {
+            margin-top: 0;
+        }
+        
+        .demo-container code {
+            display: block;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+        
+        .demo-container h2 {
+            margin-top: 2rem;
+        }
+        
+        .theme-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .theme-button {
+            padding: 0.5rem 1rem;
+            background: #fff;
+            border: 2px solid #000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .theme-button:hover {
+            background: #f0f0f0;
+        }
+        
+        .theme-button.active {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Utilisation du composant header -->
+    <shoot-me-header active-page="home"></shoot-me-header>
+    
+    <main>
+        <div class="demo-container">
+            <h1>Composant Header ShootMe</h1>
+            <p>Voici un composant header réutilisable, responsive et accessible.</p>
+            
+            <h2>Comment l'utiliser</h2>
+            <p>Ajoutez simplement ce code à votre HTML :</p>
+            <code>&lt;script src="components/header-component.js" defer&gt;&lt;/script&gt;</code>
+            <code>&lt;shoot-me-header active-page="home"&gt;&lt;/shoot-me-header&gt;</code>
+            
+            <h2>Options</h2>
+            <p>Vous pouvez définir la page active en modifiant l'attribut <code>active-page</code> :</p>
+            <ul>
+                <li><code>home</code> - Page d'accueil</li>
+                <li><code>portfolio</code> - Page portfolio</li>
+                <li><code>about</code> - Page à propos</li>
+                <li><code>contact</code> - Page contact</li>
+            </ul>
+            
+            <h2>Thèmes</h2>
+            <p>Essayez différents thèmes en cliquant sur les boutons ci-dessous :</p>
+            <div class="theme-buttons">
+                <button class="theme-button active" data-theme="default">Défaut</button>
+                <button class="theme-button" data-theme="home">Accueil</button>
+                <button class="theme-button" data-theme="portfolio">Portfolio</button>
+                <button class="theme-button" data-theme="theme-dark">Sombre</button>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Script pour changer les thèmes
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.theme-button');
+            const body = document.body;
+            const header = document.querySelector('shoot-me-header');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Supprimer toutes les classes de thème
+                    body.classList.remove('home', 'portfolio', 'theme-dark');
+                    
+                    // Ajouter la classe sélectionnée
+                    const theme = button.dataset.theme;
+                    if (theme !== 'default') {
+                        body.classList.add(theme);
+                    }
+                    
+                    // Mettre à jour les boutons
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

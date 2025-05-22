@@ -1,0 +1,287 @@
+/* Variables de couleurs - Design minimaliste brutal */
+:root {
+    --color-primary: #7627A1; /* Violet plus saturé et contrasté */
+    --color-primary-light: #9A4DC3; /* Violet plus clair */
+    --color-primary-dark: #5B1384; /* Violet plus foncé pour l'accessibilité */
+    --color-white: #ffffff;
+    --color-black: #000000; /* Noir pur pour plus de brutalisme */
+    --color-gray-light: #f2f2f2;
+    --color-gray: #d1d1d1;
+    --color-gray-dark: #555555;
+    
+    /* Tailles de police */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem; /* 24px */
+    
+    /* Famille de polices - Sans Serif et Monospace pour esthétique brute */
+    --font-family-heading: 'Inter', 'Helvetica Neue', sans-serif;
+    --font-family-body: 'Inter', 'Helvetica Neue', sans-serif;
+}
+
+/* Reset et styles de base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    line-height: 1.4; /* Ligne plus resserrée pour esthétique minimaliste */
+    color: var(--color-black);
+    background-color: var(--color-white);
+    overflow-x: hidden;
+    font-weight: 400;
+    letter-spacing: -0.01em; /* Légèrement resserré pour style minimaliste */
+}
+
+/* Styles pour l'accessibilité */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible pour l'accessibilité au clavier */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Layout container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Réduction du padding pour style minimaliste */
+}
+
+/* Header styles - Design brutalist */
+.site-header {
+    background-color: var(--color-white);
+    padding: 1rem 0;
+    position: relative;
+    z-index: 100;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: inline-block;
+    font-weight: 800;
+    font-size: var(--font-size-xl);
+    letter-spacing: -0.03em; /* Typographie resserrée */
+    text-transform: uppercase; /* Majuscules pour effet brutaliste */
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Menu toggle pour mobile - Style brutaliste */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--color-black); /* Bordure noire épaisse */
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.burger-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-black); /* Noir pour plus de contraste */
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-black);
+    transition: transform 0.2s;
+}
+
+.burger-icon::before {
+    top: -6px;
+}
+
+.burger-icon::after {
+    bottom: -6px;
+}
+
+/* Menu ouvert - style du burger */
+.menu-toggle[aria-expanded="true"] .burger-icon {
+    background-color: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .burger-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .burger-icon::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* Navigation principale - Style minimaliste */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase; /* Majuscules pour rendu brut */
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.02em; /* Légèrement espacé pour lisibilité */
+    transition: all 0.2s;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 2px;
+    background-color: var(--color-black);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    transform: scaleX(1);
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+    background-color: var(--color-primary);
+}
+
+/* Style du bouton de contact dans la navigation - Style brutaliste */
+.nav-item:last-child .nav-link {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: all 0.2s;
+}
+
+.nav-item:last-child .nav-link:hover,
+.nav-item:last-child .nav-link:focus {
+    background-color: var(--color-primary);
+}
+
+.nav-item:last-child .nav-link::after {
+    display: none;
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .main-nav {
+        flex-basis: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        margin-top: 1rem;
+        background-color: var(--color-white);
+        border-top: 1px solid var(--color-gray);
+    }
+    
+    .main-nav.open {
+        max-height: 400px;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 0;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid var(--color-gray-light);
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    /* Réajustement du bouton de contact sur mobile */
+    .nav-item:last-child .nav-link {
+        margin-top: 0.5rem;
+        text-align: center;
+        display: block;
+    }
+}
+
+/* Styles pour l'impression */
+@media print {
+    .site-header {
+        border-bottom: 1px solid var(--color-black);
+    }
+    
+    .main-nav {
+        display: none;
+    }
+} 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="50" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Définitions des couleurs -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7627A1" stop-opacity="1" />
+      <stop offset="100%" stop-color="#5B1384" stop-opacity="1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fond rectangulaire brutal -->
+  <rect x="0" y="6" width="150" height="30" fill="#ffffff" stroke="#000000" stroke-width="2" />
+  
+  <!-- Texte minimaliste sans serif -->
+  <text x="15" y="30" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#000000">
+    SHOOT<tspan fill="url(#grad)">ME</tspan>
+  </text>
+  
+  <!-- Élément graphique brutaliste - appareil photo simplifié -->
+  <g transform="translate(125, 21)">
+    <!-- Corps simplifié -->
+    <rect x="-5" y="-8" width="16" height="16" stroke="#000000" stroke-width="2" fill="none" />
+    
+    <!-- Objectif simplifié -->
+    <circle cx="3" cy="0" r="5" stroke="#000000" stroke-width="2" fill="none" />
+    
+    <!-- Point de mise au point -->
+    <circle cx="3" cy="0" r="1" fill="#7627A1" />
+  </g>
+</svg> 

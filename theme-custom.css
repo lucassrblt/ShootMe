@@ -1,0 +1,92 @@
+/* Personnalisation du header par thème */
+
+/* Variables CSS personnalisées pour le composant header */
+shoot-me-header {
+  /* Personnalisation des couleurs */
+  --color-primary: #9C27B0; /* Violet plus vif */
+  --color-black: #121212; /* Noir plus doux */
+  
+  /* Ajout d'une bordure au header */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Styles pour la page d'accueil */
+body.home shoot-me-header {
+  /* Version spéciale pour la page d'accueil */
+  --color-primary: #673AB7; /* Violet plus foncé */
+}
+
+/* Styles pour la page portfolio */
+body.portfolio shoot-me-header {
+  /* Version spéciale pour la page portfolio */
+  --color-primary: #BA68C8; /* Violet plus clair */
+}
+
+/* Amélioration spécifique du burger menu */
+@media (max-width: 768px) {
+  /* Personnalisation du bouton burger */
+  shoot-me-header .menu-toggle {
+    /* Ajout d'une ombre sur le burger */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* État au hover */
+  shoot-me-header .menu-toggle:hover .burger-icon span,
+  shoot-me-header .menu-toggle:hover .burger-icon::before,
+  shoot-me-header .menu-toggle:hover .burger-icon::after {
+    background-color: #9C27B0;
+  }
+  
+  /* État actif au clic */
+  shoot-me-header .menu-toggle:active {
+    transform: scale(0.95);
+    background-color: #f0f0f0;
+  }
+  
+  /* État spécifique pour les transitions */
+  shoot-me-header .menu-toggle[aria-expanded="true"] .burger-icon::before {
+    transition-delay: 0.1s;
+  }
+  
+  shoot-me-header .menu-toggle[aria-expanded="true"] .burger-icon::after {
+    transition-delay: 0.1s;
+  }
+}
+
+/* Démonstration de la personnalisation - Exemple d'application */
+.theme-dark shoot-me-header {
+  /* Thème sombre */
+  --color-white: #121212;
+  --color-black: #f5f5f5;
+  --color-gray-light: #333333;
+  --color-gray: #444444;
+  --color-gray-dark: #666666;
+  
+  /* Mode sombre : ajuster le contraste */
+  border-bottom: 1px solid #333;
+}
+
+/* Thème spécifique avec icône de menu personnalisée */
+.theme-photo shoot-me-header .burger-icon span,
+.theme-photo shoot-me-header .burger-icon::before,
+.theme-photo shoot-me-header .burger-icon::after {
+  /* Amélioration des barres sur le thème photo */
+  height: 2px;
+  border-radius: 1px;
+  background-color: #000;
+}
+
+.theme-photo shoot-me-header .menu-toggle {
+  /* Bouton avec fond coloré */
+  background-color: #f8f8f8;
+  border-color: #9C27B0;
+  border-width: 1px;
+}
+
+/* Exemple pour mobile */
+@media (max-width: 768px) {
+  shoot-me-header {
+    /* Personnalisation mobile spécifique */
+    --font-size-xl: 1.25rem; /* Logo plus petit sur mobile */
+  }
+} 

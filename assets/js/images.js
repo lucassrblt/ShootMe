@@ -1,5 +1,6 @@
 var photographer = [
   {
+    id: generateUUID(),
     name: "John Doe",
     age: 30,
     city: "New York",
@@ -7,6 +8,7 @@ var photographer = [
       "https://images.pexels.com/photos/1728163/pexels-photo-1728163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
+    id: generateUUID(),
     name: "Thomas Doe",
     age: 25,
     city: "Los Angeles",
@@ -14,6 +16,7 @@ var photographer = [
       "https://images.pexels.com/photos/3379933/pexels-photo-3379933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
+    id: generateUUID(),
     name: "John Smith",
     age: 35,
     city: "Chicago",
@@ -21,6 +24,7 @@ var photographer = [
       "https://images.pexels.com/photos/936019/pexels-photo-936019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
+    id: generateUUID(),
     name: "Jane Smith",
     age: 35,
     city: "Chicago",

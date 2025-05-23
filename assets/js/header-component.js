@@ -388,7 +388,7 @@ class ShootMeHeader extends HTMLElement {
               }" ${
       activePage === "home" ? 'aria-current="page"' : ""
     }>Galerie</a></li>
-              <li class="nav-item"><a href="photographes.html" class="nav-link">Photographes</a></li>
+              <li class="nav-item"><a href="#photographers-section" class="nav-link">Photographes</a></li>
               <li class="nav-item"><a href="#presentation-section" class="nav-link ${
                 activePage === "about" ? "active" : ""
               }" ${

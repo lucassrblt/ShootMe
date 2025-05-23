@@ -34,6 +34,7 @@
 ```
 ShootMe/
 ├── index.html                # Page principale
+├── pages/                    # Page annexes (des photographes)
 ├── assets/
 │   ├── css/                  # Feuilles de style CSS
 │   └── js/                   # Scripts JavaScript

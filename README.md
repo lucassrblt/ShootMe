@@ -1,68 +1,106 @@
-# 📸 PhotoLink – Mise en relation entre photographes et particuliers
 
-## Présentation
+# 📸 ShootMe
 
-**PhotoLink** est une application web minimaliste et accessible, permettant aux **particuliers** de trouver et contacter des **photographes professionnels** selon leur style, leur localisation et leurs disponibilités.
+**ShootMe** est une application web minimaliste permettant aux utilisateurs de trouver facilement des photographes professionnels selon leur style, localisation et disponibilités. Le projet met l'accent sur la performance, l'accessibilité (conformité WCAG 2.1 AA/AAA), et la simplicité d’utilisation.
 
-Ce projet a été réalisé dans le cadre de la formation *"Projet web accessible et optimisé"* (Avril-Mai 2025), avec pour objectif de créer une application ultra-légère, respectueuse des normes **WCAG 2.1**, fonctionnelle sur des machines anciennes et avec des connexions lentes.
-
----
-
-## 🧑‍💻 Fonctionnalités principales
-
-- 🎯 Mise en relation entre photographes et clients
-- 🔍 Recherche par lieu, type de prestation (mariage, portrait, événement, etc.)
-- 🖼️ Fiche photographe : portfolio, tarifs, biographie
-- 📅 Formulaire de contact / prise de rendez-vous
-- 🧭 Navigation 100 % clavier & compatible lecteurs d'écran
-- 📱 Design responsive et sobre, respectant la norme **AAA**
-- 🚀 Déploiement sur **GitHub Pages**, audit via Lighthouse
+🔗 [Site en production](https://lucassrblt.github.io/ShootMe/)  
+🔗 [Version de développement](https://lucassrblt.github.io/ShootMe/dev/index.html)
 
 ---
 
-## ♿ Accessibilité & optimisation
+## ✨ Fonctionnalités clés
 
-- Utilisation des **balises HTML sémantiques**
-- Contrastes vérifiés (niveau **AAA**)
-- Gestion du **focus clavier** et navigation linéaire
-- Compatibilité avec **JavaScript désactivé**
-- Optimisation CSS/JS (inlining, minification)
-- **Aucune dépendance à un framework JS** moderne
-- Charge serveur quasi nulle (site statique)
-
----
-
-## 🔧 Technologies utilisées
-
-- HTML5 / CSS3 pur
-- JavaScript natif (usage minimal)
-- GitHub Pages pour le déploiement
-- GitHub Actions pour le CI/CD
-- Trello pour la gestion de projet
+- 💡 Interface responsive
+- ♿ Navigation accessible au clavier
+- 🎨 Contrastes conformes WCAG AA/AAA
+- 🧱 Structure HTML sémantique (`<main>`, `<section>`, `<article>`, etc.)
+- 🚀 Déploiement automatisé via GitHub Actions
+- 🌐 Hébergement statique sur GitHub Pages
 
 ---
 
-## 🚀 Déploiement
+## 🛠️ Stack technique
 
-Le site est hébergé sur GitHub Pages :  
-👉 [https://votre-utilisateur.github.io/photolink](https://votre-utilisateur.github.io/photolink)
+- HTML
+- CSS
+- JavaScript
+
+> Une stack volontairement minimaliste pour une expérience ultra-rapide, légère et accessible à tous.
 
 ---
 
-## 📁 Organisation du code
+## 📁 Structure du projet
 
-Chaque membre a balisé ses contributions avec des commentaires explicites :
+```
+ShootMe/
+├── index.html                # Page principale
+├── assets/
+│   ├── css/                  # Feuilles de style CSS
+│   └── js/                   # Scripts JavaScript
+└── .github/
+    └── workflows/
+        └── deploy.yml       # Pipeline CI/CD
+```
 
-```html
-<!-- Début header – Alexandre -->
-<header>...</header>
-<!-- Fin header – Alexandre -->
+---
 
- ```
+## 🚀 Déploiement CI/CD
 
+Le projet est automatiquement déployé grâce à **GitHub Actions** à chaque push sur la branche `prod`.
 
- ## 📁 Organisation des tâches
+- Fichier de config : `.github/workflows/deploy.yml`
+- Hébergement via GitHub Pages
 
- - Mise en place d'un trello ici : https://trello.com/invite/b/682ae6450a41203e71dc6ffe/ATTIa5008c1ee60bfea7b3d99c0754699914D13BE55D/mon-tableau-trello
- - Pair programming 
- - Nom des branches en définit par les tâches
+---
+
+## 🧑‍💻 Contribuer au projet
+
+### 1. Cloner le dépôt
+
+```bash
+git clone https://github.com/lucassrblt/ShootMe.git
+cd ShootMe
+```
+
+### 2. Modifier le projet
+
+Le site est statique, aucune installation n’est requise. Il suffit de modifier les fichiers HTML/CSS/JS directement.
+
+---
+
+## ✅ Normes d’accessibilité
+
+- Contrastes forts (ratio 11.22:1 pour #5B1384 sur fond blanc)
+- Navigation clavier avec focus visibles
+- Utilisation correcte des balises HTML sémantiques
+- Attributs ARIA si nécessaires
+
+---
+
+## 🎨 Design & Accessibilité
+
+- **Palette de couleurs** :
+  - Fond : `#FFFFFF`
+  - Couleur principale (CTA) : `#5B1384`
+- **Typographie** : *Inter*, idéale pour une lecture numérique accessible
+
+---
+
+## 🧪 Tests recommandés
+
+- [PageSpeed Insights](https://pagespeed.web.dev/)
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- Tests manuels :
+  - Navigation clavier (`Tab`, `Shift+Tab`)
+  - Lecteurs d’écran (VoiceOver, NVDA…)
+
+---
+
+## Equipes
+- Mohamed Salamatao
+- Lucas Rimbault 
+- Yassine Hamil
+- Imene Toudeft
+- Lucas Yalman 
+- Alexandre Vital
+

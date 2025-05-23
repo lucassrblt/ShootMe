@@ -1,14 +1,5 @@
-function generateUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        const r = Math.random() * 16 | 0;
-        const v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}
-
-const photographer = [
+var photographer = [
   {
-    id: generateUUID(),
     name: "John Doe",
     age: 30,
     city: "New York",
@@ -16,7 +7,6 @@ const photographer = [
       "https://images.pexels.com/photos/1728163/pexels-photo-1728163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
-    id: generateUUID(),
     name: "Thomas Doe",
     age: 25,
     city: "Los Angeles",
@@ -24,7 +14,6 @@ const photographer = [
       "https://images.pexels.com/photos/3379933/pexels-photo-3379933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
-    id: generateUUID(),
     name: "John Smith",
     age: 35,
     city: "Chicago",
@@ -32,7 +21,6 @@ const photographer = [
       "https://images.pexels.com/photos/936019/pexels-photo-936019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
-    id: generateUUID(),
     name: "Jane Smith",
     age: 35,
     city: "Chicago",
@@ -41,32 +29,67 @@ const photographer = [
   },
 ];
 
-let boxPhotographer = document.querySelector(".container_images");
+var boxPhotographer = document.querySelector(".container_images");
+if (boxPhotographer) {
+  boxPhotographer.setAttribute("id", "photographers-section");
+  boxPhotographer.setAttribute("role", "region");
+  boxPhotographer.setAttribute("aria-labelledby", "photographers-title");
 
-// Configurer la section des photographes
-boxPhotographer.id = "photographers-section";
+  var sectionTitle = document.createElement("h2");
+  sectionTitle.className = "section-title";
+  sectionTitle.setAttribute("id", "photographers-title");
+  sectionTitle.textContent = "Nos Photographes Professionnels";
+  boxPhotographer.appendChild(sectionTitle);
 
-// Créer et ajouter un titre à la section
-const sectionTitle = document.createElement("h2");
-sectionTitle.classList.add("section-title");
-sectionTitle.textContent = "Nos Photographes Professionnels";
-boxPhotographer.appendChild(sectionTitle);
+  for (var i = 0; i < photographer.length; i++) {
+    var p = photographer[i];
 
-// Créer et ajouter les cartes de photographes
-photographer.map((photographer) => {
-  const box = document.createElement("div");
-  box.classList.add("box");
-  box.setAttribute("tabindex", "0");
-  box.innerHTML = `
-  <a href="${photographer.name.replace(" ", "-")}.html">
-      <img class="img_photographer" src="${photographer.image}" alt="${
-    photographer.name
-  }, photographe professionnel">
-      </a>
-      
-      <div class="info_name">
-          <p>${photographer.name}</p>
-      </div>
-      `;
-  boxPhotographer.appendChild(box);
-});
+    var card = document.createElement("article");
+    card.className = "box";
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "listitem");
+    card.setAttribute(
+      "aria-label",
+      p.name +
+        ", photographe professionnel âgé de " +
+        p.age +
+        " ans, basé à " +
+        p.city
+    );
+
+    var link = document.createElement("a");
+    link.href = `./pages/${p.name.replace(/\s+/g, "-").toLowerCase()}.html`;
+    link.className = "photographer-link";
+    link.setAttribute(
+      "aria-label",
+      "Voir le profil de " + p.name + ", photographe à " + p.city
+    );
+
+    var img = document.createElement("img");
+    img.className = "img_photographer";
+    img.src = p.image;
+    img.alt =
+      "Portrait de " +
+      p.name +
+      ", photographe professionnel à " +
+      p.city +
+      " (" +
+      p.age +
+      " ans)";
+
+    img.setAttribute("loading", "lazy");
+
+    link.appendChild(img);
+
+    var info = document.createElement("div");
+    info.className = "info_name";
+
+    var nameP = document.createElement("p");
+    nameP.textContent = p.name;
+    info.appendChild(nameP);
+
+    card.appendChild(link);
+    card.appendChild(info);
+    boxPhotographer.appendChild(card);
+  }
+}

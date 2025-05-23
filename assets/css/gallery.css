@@ -1,3 +1,22 @@
+.gallery-all{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#gallery-section {
+  display: flex;
+  align-items: center;
+  max-width: 90%;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 46px;
+}
+
 .skip-link {
     position: absolute;
     top: -40px;
@@ -33,8 +52,8 @@
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     overflow: hidden;
-    max-width: 300px;
-    max-height: 300px;
+    width: 300px;
+    height: 300px;
     text-align: center;
   }
 

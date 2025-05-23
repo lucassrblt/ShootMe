@@ -58,7 +58,7 @@ if (boxPhotographer) {
     );
 
     var link = document.createElement("a");
-    link.href = p.name.replace(/\s+/g, "-").toLowerCase() + ".html";
+    link.href = `./pages/${p.name.replace(/\s+/g, "-").toLowerCase()}.html`;
     link.className = "photographer-link";
     link.setAttribute(
       "aria-label",
@@ -85,7 +85,7 @@ if (boxPhotographer) {
     info.className = "info_name";
 
     var nameP = document.createElement("p");
-    nameP.textContent = p.name + " (" + p.age + " ans, " + p.city + ")";
+    nameP.textContent = p.name;
     info.appendChild(nameP);
 
     card.appendChild(link);

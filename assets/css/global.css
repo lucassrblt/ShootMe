@@ -3,6 +3,24 @@
     --font-color: #333;
     --caption-color: #555;
     --bg-color: #f9f9f9;
+    --color-primary: #7627A1; 
+    --color-primary-light: #9A4DC3; 
+    --color-primary-dark: #5B1384; 
+    --color-white: #ffffff;
+    --color-black: #000000; 
+    --color-gray-light: #f2f2f2;
+    --color-gray: #d1d1d1;
+    --color-gray-dark: #555555;
+    
+    /* Tailles de police */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem; /* 24px */
+    
+    /* Famille de polices - Sans Serif et Monospace pour esthétique brute */
+    --font-family-heading: 'Inter', 'Helvetica Neue', sans-serif;
+    --font-family-body: 'Inter', 'Helvetica Neue', sans-serif;
   }
 
 
@@ -12,14 +30,18 @@
     box-sizing: border-box;
 }
 
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
-    background-color: #1a1a1a;
-    color: #2d2d2d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    overflow: hidden;
-  }
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  overflow-x: hidden;
+  font-weight: 400;
+  letter-spacing: -0.01em; 
+}

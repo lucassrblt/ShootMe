@@ -49,7 +49,7 @@ photographer.map((photographer) => {
   <a href="${photographer.name.replace(" ", "-")}.html">
       <img class="img_photographer" src="${photographer.image}" alt="${
     photographer.name
-  }, photographe professionnel">
+  }, photographe professionnel" loading="lazy">
       </a>
       
       <div class="info_name">

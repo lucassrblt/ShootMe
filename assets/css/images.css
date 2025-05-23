@@ -1,3 +1,7 @@
+#photographers-section{
+  margin-top: 300px;
+}
+
 .container_images {
   flex-direction: row;
   justify-content: space-around;

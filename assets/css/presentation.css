@@ -2,6 +2,8 @@
     max-width: 60rem; 
     margin: 0 auto;
     padding: 2rem 1rem;
+    border-bottom: 1px solid #eaeaea;
+
 }
 
 #presentation-section h2 {

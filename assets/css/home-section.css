@@ -21,6 +21,7 @@
   font-weight: 700;
   font-family: var(--font-family-heading);
   color: #1E1E1E;
+  text-align: center;
 }
 
 .home-section-content p{

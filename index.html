@@ -1,143 +1,263 @@
 <!DOCTYPE html>
-    <html lang="fr">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="./assets/css/gallery.css">
-            <link rel="stylesheet" href="./assets/css/global.css">
-            <link rel="stylesheet" href="./assets/css/form.css">
-            <link rel="stylesheet" href="./assets/css/header.css">
-            <link rel="stylesheet" href="./assets/css/images.css">
-            <link rel="stylesheet" href="./assets/css/theme-custom.css">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link rel="stylesheet" href="./assets/css/presentation.css">
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-            <title>ShootMe</title>
-        </head>
-        <body>
-            <shoot-me-header active-page="home"></shoot-me-header>
-            <main class="contact-card">
-                <section class="form-section" aria-labelledby="form-title">
-                <h1 id="form-title" class="form-title">Parlez-nous de votre projet&nbsp;!</h1>
-            
-                <form action="#" method="post" aria-describedby="privacy-notice">
-                    <div>
-                    <label for="name">Nom / Société *</label>
-                    <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom ou société" required aria-required="true" />
-                    </div>
-            
-                    <div>
-                    <label for="phone">Téléphone *</label>
-                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Votre numéro de téléphone" required aria-required="true" />
-                    </div>
-            
-                    <div>
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="Votre adresse email" required aria-required="true" />
-                    </div>
-            
-                    <div>
-                    <label for="message">Votre demande *</label>
-                    <textarea id="message" name="message" class="form-input form-textarea" placeholder="Expliquez-nous votre projet" required aria-required="true"></textarea>
-                    </div>
-            
-                    <div class="checkbox-container">
-                    <input type="checkbox" id="terms" name="terms" required aria-required="true" />
-                    <label for="terms" id="privacy-notice">
-                        J'accepte que mes données personnelles soient collectées par l'agence ShootMe pour satisfaire aux traitements décrits
-                        <a href="#" title="Lire notre politique de confidentialité">ici</a>.
-                    </label>
-                    </div>
-            
-                    <button type="submit" class="submit-button" aria-label="Envoyer le formulaire">Envoyer</button>
-                </form>
-                </section>
-            
-                <aside class="info-section" aria-labelledby="info-heading">
-                <h2 id="info-heading" class="visually-hidden">Informations complémentaires</h2>
-            
-                <p class="info-text">
-                    Vous êtes photographe et vous avez un projet qui vous tient à cœur&nbsp;?<br />
-                    Rejoignez l'aventure <span class="highlight">ShootMe</span> et partageons vos idées !
-                </p>
-            
-                <p class="info-text">
-                    Notre équipe est à votre écoute et vous répondra sous <span class="highlight">24h</span> maximum.
-                </p>
-            
-                <p class="info-text">
-                    Vous préférez nous parler directement&nbsp;? Appelez-nous au :<br />
-                    <span class="phone-number" aria-label="Téléphone : 01 53 60 08 71">01 53 60 08 71</span>
-                </p>
-                </aside>
-            </main>
-            <div class="container_images"></div>
-            <section class="presentation-container">
-                <section id="presentation-section" aria-labelledby="presentation-heading">
-                    <h2 id="presentation-heading" tabindex="0">ShootMe, la plateforme photo simple et accessible</h2>
-                        <article class="presentation-element">
-                            <h3>Notre mission</h3>
-                            <p>
-                                ShootMe est une plateforme web créée par des passionnés de photographie et du web accessible. 
-                                Notre mission : connecter chaque personne à des photographes professionnels adaptés à leurs envies, 
-                                de manière simple, rapide et inclusive. Notre équipe s'engage à rendre la recherche de photographes 
-                                fluide pour tous, quels que soient vos besoins ou vos capacités.
-                            </p>
-                        </article>
-                        <article class="presentation-element">
-                            <h3>Pourquoi nous faire confiance</h3>
-                            <p>
-                                Que vous planifiez un mariage, un shooting portrait ou un projet artistique, ShootMe vous aide à 
-                                trouver le bon photographe, en fonction de son style, de sa localisation et de sa disponibilité. 
-                                Notre interface épurée est conçue pour offrir une expérience rapide, accessible (WCAG 2.1 AA), et sans superflu. 
-                                Plus besoin de fouiller des dizaines de sites : tout est centralisé.
-                            </p>
-                        </article>
-                        <article class="presentation-element">
-                            <h3>Une plateforme simple, pour tous</h3>
-                            <p>
-                                Recherchez par mot-clé, filtrez par style ou localisation, consultez les portfolios, puis contactez 
-                                directement le photographe de votre choix. Pas d'inscription obligatoire, pas d'intermédiaire : 
-                                une expérience pensée pour aller droit au but, adaptée à tous les utilisateurs, y compris via lecteur d'écran.
-                            </p>
-                        </article>
-                </section>
-            </section>
-            <script src="./assets/js/header-component.js" defer></script>
-            <script src="./assets/js/images.js" defer></script>
-            <script>
-            // Script pour changer les thèmes et initialiser le header adaptatif
-            document.addEventListener('DOMContentLoaded', () => {
-                const buttons = document.querySelectorAll('.theme-button');
-                const body = document.body;
-                const header = document.querySelector('shoot-me-header');
-                
-                // Ajouter des écouteurs d'événements pour les boutons de thème
-                buttons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        // Supprimer toutes les classes de thème
-                        body.classList.remove('home', 'portfolio', 'theme-dark');
-                        
-                        // Ajouter la classe sélectionnée
-                        const theme = button.dataset.theme;
-                        if (theme !== 'default') {
-                            body.classList.add(theme);
-                        }
-                        
-                        // Mettre à jour les boutons
-                        buttons.forEach(btn => btn.classList.remove('active'));
-                        button.classList.add('active');
-                    });
-                });
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/gallery.css" />
+    <link rel="stylesheet" href="./assets/css/global.css" />
+    <link rel="stylesheet" href="./assets/css/form.css" />
+    <link rel="stylesheet" href="./assets/css/header.css" />
+    <link rel="stylesheet" href="./assets/css/images.css" />
+    <link rel="stylesheet" href="./assets/css/theme-custom.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./assets/css/presentation.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet" />
+    <title>ShootMe</title>
+  </head>
+  <body>
+    <shoot-me-header active-page="home"></shoot-me-header>
 
-                // Ajout d'un petit délai pour permettre au header de s'initialiser
-                setTimeout(() => {
-                    // Forcer une vérification initiale de la section visible
-                    const scrollEvent = new Event('scroll');
-                    window.dispatchEvent(scrollEvent);
-                }, 100);
-            });
-            </script>
-        </body>
-    </html>
+    <section class="container_images">
+        <h2 class="section-title">Notre galerie</h2>
+        <main id="gallery-section" class="gallery" role="main">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo de nature">
+                <figcaption>
+                  <strong>01 Janvier 2021</strong>
+                  Jules Caron – Forêt de Brocéliande
+                </figcaption>
+              </figure>
+            
+              <figure>
+                <img src="https://images.unsplash.com/photo-1542013353840-da51a081405b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo de Saint-Valentin">
+                <figcaption>
+                  <strong>14 Février 2021</strong>
+                  Amélie Dupuis – Pont Hambourg
+                </figcaption>
+              </figure>
+            
+              <figure>
+                <img src="https://images.unsplash.com/photo-1716300419290-bf2150fe2c05?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo de ville">
+                <figcaption>
+                  <strong>10 Mars 2021</strong>
+                  Karim Lemoine – Centre-ville de Tokyo
+                </figcaption>
+              </figure>
+            
+              <figure>
+                <img src="https://images.unsplash.com/photo-1716300419290-bf2150fe2c05?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo de printemps">
+                <figcaption>
+                  <strong>25 Avril 2021</strong>
+                  Élodie Moreau – Parc Ueno, Japon
+                </figcaption>
+              </figure>
+            
+              <figure>
+                <img src="https://images.unsplash.com/photo-1605216663980-b7ca6e9f2451?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo de coucher de soleil">
+                <figcaption>
+                  <strong>5 Mai 2021</strong>
+                  Lucas Bernier – Plage de Tulum, Mexique
+                </figcaption>
+              </figure>
+            
+              <figure>
+                <img src="https://images.unsplash.com/photo-1582711012124-a56cf82307a0?q=80&w=3040&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo d'été">
+                <figcaption>
+                  <strong>30 Juillet 2021</strong>
+                  Claire Legrand – Festival de Glastonbury, UK
+                </figcaption>
+              </figure>
+            
+              <figure>
+                <img src="https://images.unsplash.com/photo-1478059299873-f047d8c5fe1a?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo de montagne">
+                <figcaption>
+                  <strong>12 Août 2021</strong>
+                  Antoine Girard – Montagnes Rocheuses, Canada
+                </figcaption>
+              </figure>
+          </main>
+    </section>
+    
+    <section class="container_images" id="photographers-section"></section>
+    <main id="contact-section" class="contact-card">
+      <section class="form-section" aria-labelledby="form-title">
+        <h1 id="form-title" class="form-title">
+          Parlez-nous de votre projet&nbsp;!
+        </h1>
+
+        <form action="#" method="post" aria-describedby="privacy-notice">
+          <div>
+            <label for="name">Nom / Société *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              placeholder="Votre nom ou société"
+              required
+              aria-required="true" />
+          </div>
+
+          <div>
+            <label for="phone">Téléphone *</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              placeholder="Votre numéro de téléphone"
+              required
+              aria-required="true" />
+          </div>
+
+          <div>
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="Votre adresse email"
+              required
+              aria-required="true" />
+          </div>
+
+          <div>
+            <label for="message">Votre demande *</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-input form-textarea"
+              placeholder="Expliquez-nous votre projet"
+              required
+              aria-required="true"></textarea>
+          </div>
+
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              required
+              aria-required="true" />
+            <label for="terms" id="privacy-notice">
+              J'accepte que mes données personnelles soient collectées par
+              l'agence ShootMe pour satisfaire aux traitements décrits
+              <a href="#" title="Lire notre politique de confidentialité">ici</a
+              >.
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-button"
+            aria-label="Envoyer le formulaire">
+            Envoyer
+          </button>
+        </form>
+      </section>
+
+      <aside class="info-section" aria-labelledby="info-heading">
+        <h2 id="info-heading" class="visually-hidden">
+          Informations complémentaires
+        </h2>
+
+        <p class="info-text">
+          Vous êtes photographe et vous avez un projet qui vous tient à
+          cœur&nbsp;?<br />
+          Rejoignez l'aventure <span class="highlight">ShootMe</span> et
+          partageons vos idées !
+        </p>
+
+        <p class="info-text">
+          Notre équipe est à votre écoute et vous répondra sous
+          <span class="highlight">24h</span> maximum.
+        </p>
+
+        <p class="info-text">
+          Vous préférez nous parler directement&nbsp;? Appelez-nous au :<br />
+          <span class="phone-number" aria-label="Téléphone : 01 53 60 08 71"
+            >01 53 60 08 71</span
+          >
+        </p>
+      </aside>
+    </main>
+    <section class="presentation-container">
+      <section id="presentation-section" aria-labelledby="presentation-heading">
+        <h2 id="presentation-heading" tabindex="0">
+          ShootMe, la plateforme photo simple et accessible
+        </h2>
+        <article class="presentation-element">
+          <h3>Notre mission</h3>
+          <p>
+            ShootMe est une plateforme web créée par des passionnés de
+            photographie et du web accessible. Notre mission : connecter chaque
+            personne à des photographes professionnels adaptés à leurs envies,
+            de manière simple, rapide et inclusive. Notre équipe s'engage à
+            rendre la recherche de photographes fluide pour tous, quels que
+            soient vos besoins ou vos capacités.
+          </p>
+        </article>
+        <article class="presentation-element">
+          <h3>Pourquoi nous faire confiance</h3>
+          <p>
+            Que vous planifiez un mariage, un shooting portrait ou un projet
+            artistique, ShootMe vous aide à trouver le bon photographe, en
+            fonction de son style, de sa localisation et de sa disponibilité.
+            Notre interface épurée est conçue pour offrir une expérience rapide,
+            accessible (WCAG 2.1 AA), et sans superflu. Plus besoin de fouiller
+            des dizaines de sites : tout est centralisé.
+          </p>
+        </article>
+        <article class="presentation-element">
+          <h3>Une plateforme simple, pour tous</h3>
+          <p>
+            Recherchez par mot-clé, filtrez par style ou localisation, consultez
+            les portfolios, puis contactez directement le photographe de votre
+            choix. Pas d'inscription obligatoire, pas d'intermédiaire : une
+            expérience pensée pour aller droit au but, adaptée à tous les
+            utilisateurs, y compris via lecteur d'écran.
+          </p>
+        </article>
+      </section>
+    </section>
+    <script src="./assets/js/header-component.js" defer></script>
+    <script src="./assets/js/images.js" defer></script>
+    <script>
+      // Script pour changer les thèmes et initialiser le header adaptatif
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".theme-button");
+        const body = document.body;
+        const header = document.querySelector("shoot-me-header");
+
+        // Ajouter des écouteurs d'événements pour les boutons de thème
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Supprimer toutes les classes de thème
+            body.classList.remove("home", "portfolio", "theme-dark");
+
+            // Ajouter la classe sélectionnée
+            const theme = button.dataset.theme;
+            if (theme !== "default") {
+              body.classList.add(theme);
+            }
+
+            // Mettre à jour les boutons
+            buttons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+          });
+        });
+
+        // Ajout d'un petit délai pour permettre au header de s'initialiser
+        setTimeout(() => {
+          // Forcer une vérification initiale de la section visible
+          const scrollEvent = new Event("scroll");
+          window.dispatchEvent(scrollEvent);
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

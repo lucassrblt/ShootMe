@@ -8,6 +8,12 @@ shoot-me-header {
   
   /* Ajout d'une bordure au header */
   border-bottom: 1px solid #e0e0e0;
+
+  /* Position fixe pour le header */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Styles pour la page d'accueil */
@@ -20,6 +26,46 @@ body.home shoot-me-header {
 body.portfolio shoot-me-header {
   /* Version spéciale pour la page portfolio */
   --color-primary: #BA68C8; /* Violet plus clair */
+}
+
+/* Styles spécifiques pour les différentes sections */
+shoot-me-header.gallery-section {
+  --color-primary: #673AB7;
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+shoot-me-header.photographers-section {
+  --color-primary: #7E57C2; /* Une nuance de violet différente */
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 12px rgba(126, 87, 194, 0.15);
+  border-bottom: 2px solid #7E57C2;
+}
+
+shoot-me-header.contact-section {
+  --color-primary: #BA68C8;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+shoot-me-header.presentation-section {
+  --color-primary: #9C27B0;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour le header lors du défilement */
+shoot-me-header.scrolled {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* Styles spécifiques pour les transitions entre sections */
+shoot-me-header {
+  transition: 
+    background-color 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out,
+    border-bottom 0.4s ease-in-out,
+    --color-primary 0.4s ease-in-out;
 }
 
 /* Amélioration spécifique du burger menu */
@@ -89,4 +135,31 @@ body.portfolio shoot-me-header {
     /* Personnalisation mobile spécifique */
     --font-size-xl: 1.25rem; /* Logo plus petit sur mobile */
   }
+}
+
+/* Ajouter une marge entre les sections pour mieux visualiser les transitions */
+main, section {
+  scroll-margin-top: 100px; /* Espace pour le header lors du défilement */
+}
+
+/* Styles pour les sections */
+#gallery-section {
+  padding-top: 1rem;
+}
+
+#photographers-section {
+  margin-top: 2rem;
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#contact-section {
+  margin-top: 3rem;
+}
+
+#presentation-section {
+  margin-top: 3rem;
+  padding-bottom: 5rem;
 } 

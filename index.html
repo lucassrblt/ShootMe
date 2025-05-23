@@ -59,7 +59,7 @@
             
                 <p class="info-text">
                     Vous êtes photographe et vous avez un projet qui vous tient à cœur&nbsp;?<br />
-                    Rejoignez l’aventure <span class="highlight">ShootMe</span> et partageons vos idées !
+                    Rejoignez l'aventure <span class="highlight">ShootMe</span> et partageons vos idées !
                 </p>
             
                 <p class="info-text">
@@ -81,7 +81,7 @@
                             <p>
                                 ShootMe est une plateforme web créée par des passionnés de photographie et du web accessible. 
                                 Notre mission : connecter chaque personne à des photographes professionnels adaptés à leurs envies, 
-                                de manière simple, rapide et inclusive. Notre équipe s’engage à rendre la recherche de photographes 
+                                de manière simple, rapide et inclusive. Notre équipe s'engage à rendre la recherche de photographes 
                                 fluide pour tous, quels que soient vos besoins ou vos capacités.
                             </p>
                         </article>
@@ -98,39 +98,46 @@
                             <h3>Une plateforme simple, pour tous</h3>
                             <p>
                                 Recherchez par mot-clé, filtrez par style ou localisation, consultez les portfolios, puis contactez 
-                                directement le photographe de votre choix. Pas d’inscription obligatoire, pas d’intermédiaire : 
-                                une expérience pensée pour aller droit au but, adaptée à tous les utilisateurs, y compris via lecteur d’écran.
+                                directement le photographe de votre choix. Pas d'inscription obligatoire, pas d'intermédiaire : 
+                                une expérience pensée pour aller droit au but, adaptée à tous les utilisateurs, y compris via lecteur d'écran.
                             </p>
                         </article>
                 </section>
             </section>
-        </body>
-        <script src="./assets/js/header-component.js" defer></script>
-        <script src="./assets/js/images.js" defer></script>
-        <script>
-        // Script pour changer les thèmes
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.theme-button');
-            const body = document.body;
-            const header = document.querySelector('shoot-me-header');
-            
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Supprimer toutes les classes de thème
-                    body.classList.remove('home', 'portfolio', 'theme-dark');
-                    
-                    // Ajouter la classe sélectionnée
-                    const theme = button.dataset.theme;
-                    if (theme !== 'default') {
-                        body.classList.add(theme);
-                    }
-                    
-                    // Mettre à jour les boutons
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
+            <script src="./assets/js/header-component.js" defer></script>
+            <script src="./assets/js/images.js" defer></script>
+            <script>
+            // Script pour changer les thèmes et initialiser le header adaptatif
+            document.addEventListener('DOMContentLoaded', () => {
+                const buttons = document.querySelectorAll('.theme-button');
+                const body = document.body;
+                const header = document.querySelector('shoot-me-header');
+                
+                // Ajouter des écouteurs d'événements pour les boutons de thème
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Supprimer toutes les classes de thème
+                        body.classList.remove('home', 'portfolio', 'theme-dark');
+                        
+                        // Ajouter la classe sélectionnée
+                        const theme = button.dataset.theme;
+                        if (theme !== 'default') {
+                            body.classList.add(theme);
+                        }
+                        
+                        // Mettre à jour les boutons
+                        buttons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                    });
                 });
+
+                // Ajout d'un petit délai pour permettre au header de s'initialiser
+                setTimeout(() => {
+                    // Forcer une vérification initiale de la section visible
+                    const scrollEvent = new Event('scroll');
+                    window.dispatchEvent(scrollEvent);
+                }, 100);
             });
-        });
-        </script>
-    </head>
-</html>
+            </script>
+        </body>
+    </html>

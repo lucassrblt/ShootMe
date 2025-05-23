@@ -46,7 +46,11 @@ photographer.map((photographer) => {
   box.classList.add("box");
   box.setAttribute("tabindex", "0");
   box.innerHTML = `
-      <img class="img_photographer" src="${photographer.image}" alt="${photographer.name}, photographe professionnel">
+  <a href="${photographer.name.replace(" ", "-")}.html">
+      <img class="img_photographer" src="${photographer.image}" alt="${
+    photographer.name
+  }, photographe professionnel">
+      </a>
       
       <div class="info_name">
           <p>${photographer.name}</p>
